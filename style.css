@@ -1,3 +1,97 @@
+:root {
+  --primary-background-color: #2A1A1F;
+  --secondary-background-color: #f1b21e;
+  --primary-color: #fffcf3;
+  --secondary-color: #fbcb5c;
+
+  --card-box-shadow: rgba(200, 200, 175, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  color: var(--primary-color);
+}
+
 body {
-  background: White;
+  background: var(--secondary-background-color);
+}
+
+.main-container{
+  width: 90%;
+  margin: 5% auto;
+  background-color: var(--primary-background-color);
+}
+
+header h1{
+  text-align: center;
+  padding: 2vw 0;
+  color: var(--secondary-color);
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-around;
+  column-gap: 1vw;
+}
+
+nav ul li a , .logo a{
+  display: block;
+  padding: 1vw 1.5vw;
+  border-bottom: var(--secondary-color) 1px solid;
+}
+
+nav ul li a:hover, .logo a:hover{
+  border-bottom-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+
+.banner{
+  display: flex;
+  margin: 2vw 10%;
+  column-gap: 2vw;
+  height: 300px;
+}
+
+.slides, .box-office{
+  height: 100%;
+  border: 1px var(--secondary-color) solid;
+}
+
+.slides{
+  width: 70%;
+}
+
+.box-office{
+  width: 30%;
+}
+
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2vw;
+  margin: 2vw 10%;
+}
+
+.movie{
+  border: 1px var(--secondary-color) solid;
+  height: 250px;
+}
+
+footer{
+  margin-top: 5vw;
+  padding: 2vw 0;
+  text-align: center;
+  border-top: 1px solid var(--secondary-color);
 }
