@@ -62,21 +62,78 @@ nav ul li a:hover,
   display: flex;
   margin: 2vw 10%;
   column-gap: 2vw;
-  height: 300px;
+  height: 30vw;
 }
 
-.slides,
-.box-office {
-  height: 100%;
-  border: 1px var(--secondary-color) solid;
-}
 
-.slides {
+.slide-show {
+  position: relative;
   width: 70%;
+}
+
+.slide-show img{
+  width: 100%;
+  display: block;
+}
+
+.next-slide{
+  position: absolute;
+  padding: 20px 5px;
+  top: 40%;
+  right: 10px;
+  background-color: black;
+  cursor: pointer;
+}
+
+.prev-slide{
+  position: absolute;
+  padding: 20px 5px;
+  top: 40%;
+  left: 10px;
+  background-color: black;
+  cursor: pointer;
+}
+
+.change-slides{
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+}
+
+.slide{
+  margin: 0 2px;
+
+  cursor: pointer;
 }
 
 .box-office {
   width: 30%;
+}
+
+.box-office:last-child{
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.box-office-poster{
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--secondary-color);
+}
+
+
+.box-office-poster img{
+  width: 20%;
+}
+
+.box-office-num{
+  display: block;
+  padding:  0 20px;
+  font-size: 25px;
+}
+
+.box-office-details > *{
+  padding: 5px 0;
 }
 
 
@@ -95,7 +152,7 @@ nav ul li a:hover,
 .movie-name {
   border: 1px var(--secondary-color) solid;
   
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .movie img {
@@ -138,6 +195,24 @@ nav ul li a:hover,
   padding: 3px 10px;
   border-radius: 10px;
   background-color: #181013;
+}
+
+
+.giphy-main-container{
+  margin: 5%;
+  column-count: 5;
+  column-gap: 1vw;
+}
+
+
+
+.giphy{
+  width: 100%;
+}
+
+.giphy-title{
+  padding: 1vw 0;
+  text-align: center;
 }
 
 
