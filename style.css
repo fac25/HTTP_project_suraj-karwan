@@ -1,5 +1,5 @@
 :root {
-  --primary-background-color: #2A1A1F;
+  --primary-background-color: #181013;
   --secondary-background-color: #f1b21e;
   --primary-color: #fffcf3;
   --secondary-color: #fbcb5c;
@@ -21,75 +21,128 @@ body {
   background: var(--secondary-background-color);
 }
 
-.main-container{
+.main-container {
   width: 90%;
   margin: 5% auto;
   background-color: var(--primary-background-color);
 }
 
-header h1{
+header h1 {
   text-align: center;
   padding: 2vw 0;
   color: var(--secondary-color);
 }
 
-nav{
+nav {
   display: flex;
   justify-content: space-around;
 }
 
-nav ul{
+nav ul {
   display: flex;
   justify-content: space-around;
   column-gap: 1vw;
 }
 
-nav ul li a , .logo a{
+nav ul li a,
+.logo a {
   display: block;
   padding: 1vw 1.5vw;
   border-bottom: var(--secondary-color) 1px solid;
 }
 
-nav ul li a:hover, .logo a:hover{
+nav ul li a:hover,
+.logo a:hover {
   border-bottom-color: var(--primary-color);
   color: var(--secondary-color);
 }
 
 
-.banner{
+.banner {
   display: flex;
   margin: 2vw 10%;
   column-gap: 2vw;
   height: 300px;
 }
 
-.slides, .box-office{
+.slides,
+.box-office {
   height: 100%;
   border: 1px var(--secondary-color) solid;
 }
 
-.slides{
+.slides {
   width: 70%;
 }
 
-.box-office{
+.box-office {
   width: 30%;
 }
 
 
-main{
+.movies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 2vw;
   margin: 2vw 10%;
 }
 
-.movie{
-  border: 1px var(--secondary-color) solid;
-  height: 250px;
+.movie {
+  position: relative;
 }
 
-footer{
+.movie-poster,
+.movie-name {
+  border: 1px var(--secondary-color) solid;
+  
+  border-radius: 4px;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie-name{
+  padding: 5px 0;
+  text-align: center;
+}
+
+.movie-popularity {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: #181013;
+}
+
+.movie-duration {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: #181013;
+}
+
+.movie-detail-wrapper {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.movie-detail-wrapper span{
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: #181013;
+}
+
+
+
+footer {
   margin-top: 5vw;
   padding: 2vw 0;
   text-align: center;
