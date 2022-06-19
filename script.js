@@ -2,7 +2,7 @@
 
       const API_KEY = "api_key=6ee6d2c638a53edad93b9bf9fe334f43";
       const BASE_URL = "https://api.themoviedb.org/3";
-      const API_URL = BASE_URL + "/discover/movie?" + API_KEY + "&page=3";
+      const API_URL = BASE_URL + "/discover/movie?" + API_KEY + "&page=1";
       
       const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
