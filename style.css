@@ -95,3 +95,46 @@ footer{
   text-align: center;
   border-top: 1px solid var(--secondary-color);
 }
+
+/* Movies */
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.movie-info span.green{
+  color:lightgreen;
+}
+
+.movie-info span.orange{
+  color:orange;
+}
+
+.movie-info span.red{
+  color:red;
+}
+
+/* Search */
+
+header form {
+  display: block;
+  width: 100%;
+}
+
+.search {
+  background-color: transparent;
+  border: 2px solid;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: #fffcf3;
+  font-family: inherit;
+  margin: 2vw auto;
+  display: block;
+}
+
+.search:focus {
+  outline: 0;
+  background-color: rgb(0, 0, 0);
+}

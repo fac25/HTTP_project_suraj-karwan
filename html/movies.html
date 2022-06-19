@@ -13,6 +13,10 @@
       <header>
         <h1>SK MOVIES</h1>
 
+        <form id="form">
+          <input type="text" placeholder="search" id="search" class="search">
+        </form>
+
         <nav>
           <div>
             <p class="logo"><a href="/HTTP_project_suraj-karwan/index.html">SK Movies</a></p>
@@ -27,131 +31,73 @@
         </nav>
       </header>
 
-      <main>
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name2
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name3
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name4
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name5
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name2
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name3
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name4
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-
-        <div class="movie">
-          <img src="" alt="" />
-          <p>
-            Movie Name5
-            <span>Year Released</span>
-          </p>
-
-          <span>Rating</span>
-          <span>Duration</span>
-          <span>Age Limit</span>
-        </div>
-        
+      <main id="mainMovies">
+        <!-- Upcoming Movies -->
       </main>
 
       <footer>SK MOVIES &copy;2022</footer>
     </div>
-    <script src="script.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+      // The Movie DB
+
+      const API_KEY = "api_key=6ee6d2c638a53edad93b9bf9fe334f43";
+      const BASE_URL = "https://api.themoviedb.org/3";
+      const API_URL = BASE_URL + "/discover/movie?sort_by=vote_count.desc&" + API_KEY;
+      
+      const IMG_URL = "https://image.tmdb.org/t/p/w500";
+
+      // Main Page
+      
+      const mainHome = document.getElementById('mainMovies')
+      
+      // Gets Top Rated Movies
+      getMovies(API_URL);
+      
+      function getMovies(url) {
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            showMovies(data.results);
+          });
+      }
+      
+      function showMovies(data) {
+        mainHome.innterHTML = '';
+      
+        data.forEach(movie => {
+          const{title, poster_path, vote_average, overview, release_date} = movie;
+          const movieEl = document.createElement('div');
+          movieEl.classList.add('movie')
+          movieEl.innerHTML = `
+          <img src="${poster_path? IMG_URL+[poster_path]: "https://moviereelist.com/wp-content/uploads/2019/07/poster-placeholder.jpg"} " alt="${title}" />
+
+          <div class="movie-info">
+            <p>${title}</p>
+            <span class="${getColor(vote_average)}">${vote_average}</span><br>
+            <span>${release_date}</span>
+          </div>
+          `
+          mainHome.appendChild(movieEl);
+        })
+      }
+
+      // Rating
+
+      function getColor(vote) {
+        if (vote >= 8) {
+          return 'green'
+        } 
+        else if (vote >= 5) {
+          return 'orange'
+        } 
+        else {
+          return'red'
+        }
+      }
+    </script>
   </body>
 
 </html>
