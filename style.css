@@ -284,6 +284,32 @@ nav ul li a:hover,
   text-align: center;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1vh auto;
+}
+
+.search{
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+}
+
+.search:focus {
+  outline: 0;
+  background-color: whitesmoke;
+}
+
+.fa-search {
+  padding: 0.25rem 1rem;
+  background-color: #181013;
+  cursor: pointer;
+}
+
 
 
 footer {
