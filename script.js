@@ -66,9 +66,8 @@ getMovie();
 
 const giphyMainContainer = document.getElementById("giphy-main-container");
 
-console.log(giphyMainContainer);
 getGiphy = async () => {
-  fetch(
+  await fetch(
     "https://api.giphy.com/v1/gifs/trending?api_key=sGSQS2XOW32LeNaUXeW9c9UeWP4MiWtI&limit=25&rating=g"
   )
     .then((res) => res.json())
@@ -93,4 +92,4 @@ getGiphy = async () => {
     });
 };
 
-await getGiphy();
+getGiphy();
