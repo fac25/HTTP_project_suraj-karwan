@@ -201,6 +201,7 @@ nav ul li a:hover,
 }
 
 .movie-name {
+  display: block;
   padding: 5px 0;
   text-align: center;
 }
@@ -284,6 +285,34 @@ nav ul li a:hover,
   text-align: center;
 }
 
+
+.movie-info-wrapper {
+  display: flex;
+  margin: 2vw 10%;
+  column-gap: 2vw;
+}
+
+.movie-info-poster {
+  width: 30%;
+}
+
+.movie-info {
+  width: 70%;
+
+}
+
+.movie-info>* {
+  padding: 1vw 0;
+}
+
+.movie-brief {
+  width: 100%;
+}
+
+.movie-info-wallpaper{
+  width: 80%;
+  margin:  auto 10%;
+}
 
 
 footer {
