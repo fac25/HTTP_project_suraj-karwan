@@ -7,6 +7,10 @@
   --card-box-shadow: rgba(200, 200, 175, 0.5);
 }
 
+/* ---------------  --------------- */
+
+/* --------------- Reset layout --------------- */
+
 * {
   margin: 0;
   padding: 0;
@@ -27,11 +31,15 @@ body {
   background-color: var(--primary-background-color);
 }
 
+/* --------------- Header --------------- */
+
 header h1 {
   text-align: center;
   padding: 2vw 0;
   color: var(--secondary-color);
 }
+
+/* --------------- NavBar --------------- */
 
 nav {
   display: flex;
@@ -58,6 +66,8 @@ nav ul li a:hover,
 }
 
 
+/* --------------- Banner --------------- */
+
 .banner {
   display: flex;
   margin: 2vw 10%;
@@ -65,6 +75,8 @@ nav ul li a:hover,
   height: 30vw;
 }
 
+
+/* --------------- Slide show --------------- */
 
 .slide-show {
   position: relative;
@@ -107,6 +119,8 @@ nav ul li a:hover,
   cursor: pointer;
 }
 
+/* --------------- Box office --------------- */
+
 .box-office {
   width: 30%;
 }
@@ -135,6 +149,8 @@ nav ul li a:hover,
 .box-office-details>* {
   padding: 5px 0;
 }
+
+/* --------------- Line Separator --------------- */
 
 .line-separator,
 .sort-genre {
@@ -177,6 +193,8 @@ nav ul li a:hover,
   border-radius: 4px;
   background-color: var(--primary-background-color);
 }
+
+/* --------------- Movies page --------------- */
 
 #movies {
   display: grid;
@@ -274,7 +292,7 @@ nav ul li a:hover,
   column-gap: 1vw;
 }
 
-
+/* --------------- Giphy's Page --------------- */
 
 .giphy {
   width: 100%;
@@ -285,6 +303,8 @@ nav ul li a:hover,
   text-align: center;
 }
 
+
+/* --------------- Movie info page --------------- */
 
 .movie-info-wrapper {
   display: flex;
@@ -314,6 +334,8 @@ nav ul li a:hover,
   margin:  auto 10%;
 }
 
+
+/* --------------- Footer --------------- */
 
 footer {
   margin-top: 5vw;
