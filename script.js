@@ -1,11 +1,9 @@
 // Movie API Box Office
 
+// Movie API
 
-
-// Movie API 
-
-const moviePoster = document.getElementsByClassName("movie-poster")
-const movieName = document.getElementsByClassName("movie-name")
+const moviePoster = document.getElementsByClassName("movie-poster");
+const movieName = document.getElementsByClassName("movie-name");
 const movieReleaseYear = document.getElementsByClassName("movie-release-year");
 const moviePopularity = document.getElementsByClassName("movie-popularity");
 const movieDuration = document.getElementsByClassName("movie-duration");
@@ -17,68 +15,82 @@ getMovie = () => {
   fetch(
     "https://api.themoviedb.org/3/discover/movie?api_key=6ee6d2c638a53edad93b9bf9fe334f43&page=1"
   )
-  .then((res) => res.json())
-  .then((data) => {
-    for(i = 0; i < data.results.length; i++) {
+    .then((res) => res.json())
+    .then((data) => {
+      for (i = 0; i < data.results.length; i++) {
+        const imgURL = `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`;
 
-      const imgURL = `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`
-      
-      const movieTitle = data.results[i].title;
-      const movieDate = data.results[i].release_date;
-      const moviePopular = data.results[i].popularity;
-      const movieLength = "";
-      const movieRating = data.results[i].vote_average;
-      const movieLan = data.results[i].original_language;
-      const movieAgeLimit = "";
+        const movieTitle = data.results[i].title;
+        const movieDate = data.results[i].release_date;
+        const moviePopular = data.results[i].popularity;
+        const movieLength = "";
+        const movieRating = data.results[i].vote_average;
+        const movieLan = data.results[i].original_language;
+        const movieAgeLimit = "";
 
-      // Display Img
-      moviePoster[i].src = imgURL;
-      moviePoster[i].alt = movieTitle;
-      // Display Title
-      movieName[i].innerHTML = movieTitle;
-      // Display Release Date
+        // Display Img
+        moviePoster[i].src = imgURL;
+        moviePoster[i].alt = movieTitle;
+        // Display Title
+        movieName[i].innerHTML = movieTitle;
+        // Display Release Date
 
-      // Display Movie Popularity
+        // Display Movie Popularity
 
-      // Display Movie Duration
+        // Display Movie Duration
 
-      // Display Movie Rate
-      movieRate[i].innerHTML = movieRating;
-      // Display Movie Language
-      movieLanguage[i].innerHTML = movieLan.toUpperCase();
-      // Display Movie Age Limit
+        // Display Movie Rate
+        movieRate[i].innerHTML = movieRating;
+        // Display Movie Language
+        movieLanguage[i].innerHTML = movieLan.toUpperCase();
+        // Display Movie Age Limit
 
-      console.log(movieTitle, movieDate, moviePopular, movieLength, movieRating, movieLan, movieAgeLimit);
-    }
-    
-    console.log(data.results);
-  })
-}
+        console.log(
+          movieTitle,
+          movieDate,
+          moviePopular,
+          movieLength,
+          movieRating,
+          movieLan,
+          movieAgeLimit
+        );
+      }
+
+      console.log(data.results);
+    });
+};
 
 getMovie();
 
 // Giphy API
 
-const gyphyContainer = document.getElementsByClassName("giphy-main-container");
-const giphyUrl = document.getElementsByClassName("giphy");
-const giphyTitle = document.getElementsByClassName("giphy-title")
+const giphyMainContainer = document.getElementById("giphy-main-container");
 
-getGiphy = () => {
+console.log(giphyMainContainer);
+getGiphy = async () => {
   fetch(
     "https://api.giphy.com/v1/gifs/trending?api_key=sGSQS2XOW32LeNaUXeW9c9UeWP4MiWtI&limit=25&rating=g"
   )
     .then((res) => res.json())
     .then((giphies) => {
       for (i = 0; i < giphies.data.length; i++) {
-        `<div class="giphy-container">
-        <img class="giphy" src=${giphies.data[i].images.original.url} alt="" />
-        <p class="giphy-title">
-        </p>
-    </div>`;
-        giphyUrl[i].src = `${giphies.data[i].images.original.url}`;
-        giphyTitle[i].innerHTML = `${giphies.data[i].title}`;
+        const giphyContainer = document.createElement("div");
+        const giphy = document.createElement("img");
+        const giphyTitle = document.createElement("p");
+
+        giphyContainer.classList.add("giphy-container");
+        giphy.classList.add("giphy");
+        giphyTitle.classList.add("giphy-title");
+
+        giphy.src = `${giphies.data[i].images.original.url}`;
+        giphyTitle.innerHTML = `${giphies.data[i].title}`;
+
+        giphyContainer.append(giphy);
+        giphyContainer.append(giphyTitle);
+
+        giphyMainContainer.appendChild(giphyContainer);
       }
     });
 };
 
-getGiphy();
+await getGiphy();

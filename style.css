@@ -137,7 +137,7 @@ nav ul li a:hover,
 }
 
 
-.movies {
+#movies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 2vw;
@@ -198,7 +198,7 @@ nav ul li a:hover,
 }
 
 
-.giphy-main-container{
+#giphy-main-container{
   margin: 5%;
   column-count: 5;
   column-gap: 1vw;
