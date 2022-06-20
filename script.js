@@ -1,59 +1,81 @@
-      // The Movie DB
+// Movie API Box Office
 
-      const API_KEY = "api_key=6ee6d2c638a53edad93b9bf9fe334f43";
-      const BASE_URL = "https://api.themoviedb.org/3";
-      const API_URL = BASE_URL + "/discover/movie?" + API_KEY + "&page=1";
-      
-      const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
-      // Main Page
+
+// Movie API 
+
+const moviePoster = document.getElementsByClassName("movie-poster")
+const movieName = document.getElementsByClassName("movie-name")
+const movieReleaseYear = document.getElementsByClassName("movie-release-year");
+const moviePopularity = document.getElementsByClassName("movie-popularity");
+const movieDuration = document.getElementsByClassName("movie-duration");
+const movieRate = document.getElementsByClassName("movie-rate");
+const movieLanguage = document.getElementsByClassName("movie-language");
+const movieAge = document.getElementsByClassName("movie-age");
+
+getMovie = () => {
+  fetch(
+    "https://api.themoviedb.org/3/discover/movie?api_key=6ee6d2c638a53edad93b9bf9fe334f43&page=1"
+  )
+  .then((res) => res.json())
+  .then((data) => {
+
+    for(i = 0; i < data.results.length; i++) {
+
+      const imgURL = `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`
       
-      const mainHome = document.getElementById('mainHome')
-      
-      // Gets Popular Movies
-      getMovies(API_URL);
-      
-      function getMovies(url) {
-        fetch(url)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data.results);
-            showMovies(data.results);
-          });
+      const movieTitle = data.results[i].title;
+      const movieDate = data.results[i].release_date;
+      const moviePopular = data.results[i].popularity;
+      const movieLength = "";
+      const movieRating = data.results[i].vote_average;
+      const movieLan = data.results[i].original_language;
+      const movieAgeLimit = "";
+
+      // Display Img
+      moviePoster[i].src = imgURL;
+      moviePoster[i].alt = movieTitle;
+      // Display Title
+      movieName[i].innerHTML = movieTitle;
+      // Display Release Date
+
+      // Display Movie Popularity
+
+      // Display Movie Duration
+
+      // Display Movie Rate
+      movieRate[i].innerHTML = movieRating;
+      // Display Movie Language
+      movieLanguage[i].innerHTML = movieLan.toUpperCase();
+      // Display Movie Age Limit
+
+      console.log(movieTitle, movieDate, moviePopular, movieLength, movieRating, movieLan, movieAgeLimit);
+    }
+    
+    console.log(data.results);
+  })
+}
+
+getMovie();
+
+// Giphy API
+
+const giphyUrl = document.getElementsByClassName("giphy")
+const giphyTitle = document.getElementsByClassName("giphy-title")
+
+getGiphy = () => {
+  fetch(
+    "https://api.giphy.com/v1/gifs/trending?api_key=sGSQS2XOW32LeNaUXeW9c9UeWP4MiWtI&limit=25&rating=g"
+  )
+    .then((res) => res.json())
+    .then((giphies) => {
+
+      for(i = 0; i < giphies.data.length; i++){
+        giphyUrl[i].src = `${giphies.data[i].images.original.url}`
+        giphyTitle[i].innerHTML = `${giphies.data[i].title}`
       }
-      
-      function showMovies(data) {
-        mainHome.innterHTML = '';
-      
-        data.forEach(movie => {
-          const{title, poster_path, vote_average, overview, release_date} = movie;
-          const movieEl = document.createElement('div');
-          movieEl.classList.add('movie')
-          movieEl.innerHTML = `
-          <img src="${poster_path? IMG_URL+[poster_path]: "https://moviereelist.com/wp-content/uploads/2019/07/poster-placeholder.jpg"}" alt="${title}" />
 
-          <div class="movie-info">
-            <p>${title}</p>
-            <span class="${getColor(vote_average)}">${vote_average}</span><br>
-            <span>${release_date}</span>
-          </div>
-          `
-          mainHome.appendChild(movieEl);
-        })
-      }
+    });
+};
 
-      // Rating
-
-      function getColor(vote) {
-        if (vote >= 8) {
-          return 'green'
-        } 
-        else if (vote >= 5) {
-          return 'orange'
-        } 
-        else {
-          return'red'
-        }
-      }
-      
-
+getGiphy();

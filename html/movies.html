@@ -1,103 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>SK Movies</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <title>SK Movies</title>
+</head>
 
-  <body>
-    <div class="main-container">
-      <header>
-        <h1>SK MOVIES</h1>
+<body>
+  <div class="main-container">
+    <header>
+      <h1>SK MOVIES</h1>
 
-        <form id="form">
-          <input type="text" placeholder="search" id="search" class="search">
-        </form>
+      <nav>
+        <div>
+          <p class="logo"><a href="/HTTP_project_suraj-karwan/index.html">SK Movies</a></p>
+        </div>
+        <ul>
+          <li><a href="/HTTP_project_suraj-karwan/index.html">Home</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/movies.html">Movies</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/giphy.html">Giphys</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/about.html">About</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <nav>
-          <div>
-            <p class="logo"><a href="/HTTP_project_suraj-karwan/index.html">SK Movies</a></p>
+    <main>
+      <div class="movies">
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
           </div>
-          <ul>
-            <li><a href="/HTTP_project_suraj-karwan/index.html">Home</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/movies.html">Movies</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/giphy.html">Giphys</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/about.html">About</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+        </div>
 
-      <main id="mainMovies">
-        <!-- Upcoming Movies -->
-      </main>
-
-      <footer>SK MOVIES &copy;2022</footer>
-    </div>
-
-    <!-- JavaScript -->
-    <script>
-      // The Movie DB
-
-      const API_KEY = "api_key=6ee6d2c638a53edad93b9bf9fe334f43";
-      const BASE_URL = "https://api.themoviedb.org/3";
-      const API_URL = BASE_URL + "/discover/movie?sort_by=vote_count.desc&" + API_KEY;
-      
-      const IMG_URL = "https://image.tmdb.org/t/p/w500";
-
-      // Main Page
-      
-      const mainHome = document.getElementById('mainMovies')
-      
-      // Gets Top Rated Movies
-      getMovies(API_URL);
-      
-      function getMovies(url) {
-        fetch(url)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data.results);
-            showMovies(data.results);
-          });
-      }
-      
-      function showMovies(data) {
-        mainHome.innterHTML = '';
-      
-        data.forEach(movie => {
-          const{title, poster_path, vote_average, overview, release_date} = movie;
-          const movieEl = document.createElement('div');
-          movieEl.classList.add('movie')
-          movieEl.innerHTML = `
-          <img src="${poster_path? IMG_URL+[poster_path]: "https://moviereelist.com/wp-content/uploads/2019/07/poster-placeholder.jpg"} " alt="${title}" />
-
-          <div class="movie-info">
-            <p>${title}</p>
-            <span class="${getColor(vote_average)}">${vote_average}</span><br>
-            <span>${release_date}</span>
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
           </div>
-          `
-          mainHome.appendChild(movieEl);
-        })
-      }
+        </div>
 
-      // Rating
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
 
-      function getColor(vote) {
-        if (vote >= 8) {
-          return 'green'
-        } 
-        else if (vote >= 5) {
-          return 'orange'
-        } 
-        else {
-          return'red'
-        }
-      }
-    </script>
-  </body>
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+        
+        <div class="movie">
+          <img class="movie-poster" src="../the-movies.jpg" alt="The Movies poster" />
+          <p class="movie-name">The Movies
+            <span class="movie-release-year">2022</span>
+          </p>
+          <span class="movie-popularity">5246</span>
+          <span class="movie-duration">125mins</span>
+          <div class="movie-detail-wrapper">
+            <span class="movie-rate">7.5</span>
+            <span class="movie-language">English</span>
+            <span class="movie-age">12A</span>
+          </div>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer>SK MOVIES &copy;2022</footer>
+  </div>
+  <script src="../script.js"></script>
+</body>
 
 </html>
