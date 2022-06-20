@@ -1,9 +1,9 @@
 // Movie API Box Office
 
-// Movie API
+// Movie API 
 
-const moviePoster = document.getElementsByClassName("movie-poster");
-const movieName = document.getElementsByClassName("movie-name");
+const moviePoster = document.getElementsByClassName("movie-poster")
+const movieName = document.getElementsByClassName("movie-name")
 const movieReleaseYear = document.getElementsByClassName("movie-release-year");
 const moviePopularity = document.getElementsByClassName("movie-popularity");
 const movieDuration = document.getElementsByClassName("movie-duration");
