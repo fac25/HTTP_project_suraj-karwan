@@ -15,11 +15,10 @@ function getMovies(url) {
     });
 }
 
-
-
 // Giphy API
 
-const giphyUrl = document.getElementsByClassName("giphy")
+const gyphyContainer = document.getElementsByClassName("giphy-main-container");
+const giphyUrl = document.getElementsByClassName("giphy");
 const giphyTitle = document.getElementsByClassName("giphy-title")
 
 getGiphy = () => {
@@ -28,12 +27,15 @@ getGiphy = () => {
   )
     .then((res) => res.json())
     .then((giphies) => {
-
-      for(i = 0; i < giphies.data.length; i++){
-        giphyUrl[i].src = `${giphies.data[i].images.original.url}`
-        giphyTitle[i].innerHTML = `${giphies.data[i].title}`
+      for (i = 0; i < giphies.data.length; i++) {
+        `<div class="giphy-container">
+        <img class="giphy" src=${giphies.data[i].images.original.url} alt="" />
+        <p class="giphy-title">
+        </p>
+    </div>`;
+        giphyUrl[i].src = `${giphies.data[i].images.original.url}`;
+        giphyTitle[i].innerHTML = `${giphies.data[i].title}`;
       }
-
     });
 };
 
