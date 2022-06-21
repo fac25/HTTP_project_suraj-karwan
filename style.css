@@ -71,8 +71,7 @@ nav ul li a:hover,
 .banner {
   display: flex;
   margin: 2vw 10%;
-  column-gap: 2vw;
-  height: 30vw;
+  /* column-gap: 2vw; */
 }
 
 
@@ -80,7 +79,8 @@ nav ul li a:hover,
 
 .slide-show {
   position: relative;
-  width: 70%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .slide-show img {
@@ -88,41 +88,93 @@ nav ul li a:hover,
   display: block;
 }
 
-.next-slide {
-  position: absolute;
-  padding: 20px 5px;
-  top: 40%;
-  right: 10px;
-  background-color: black;
-  cursor: pointer;
+#slides {
+  display: flex;
+  width: 500%;
+  height: 100%;
 }
 
+.slide {
+  width: 20%;
+  transition: 0.6s;
+}
+
+input[name="slide"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.slides-navigator {
+  position: absolute;
+  display: flex;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slide-nav {
+  width: 40px;
+  height: 10px;
+  margin: 0 5px;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.slide-nav:hover {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-background-color)
+}
+
+#first-slide:checked~.slide-1 {
+  margin-left: 0;
+}
+
+#second-slide:checked~.slide-1 {
+  margin-left: -20%;
+}
+
+#third-slide:checked~.slide-1 {
+  margin-left: -40%;
+}
+
+#fourth-slide:checked~.slide-1 {
+  margin-left: -60%;
+}
+
+#fifth-slide:checked~.slide-1 {
+  margin-left: -80%;
+}
+
+.next-slide,
 .prev-slide {
   position: absolute;
   padding: 20px 5px;
   top: 40%;
+  background-color: var(--primary-background-color);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.next-slide:hover, .prev-slide:hover{
+  opacity: 1;
+}
+
+.next-slide {
+  right: 10px;
+}
+
+.prev-slide {
   left: 10px;
-  background-color: black;
-  cursor: pointer;
-}
-
-.change-slides {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  text-align: center;
-}
-
-.slide {
-  margin: 0 2px;
-
-  cursor: pointer;
 }
 
 /* --------------- Box office --------------- */
 
-.box-office {
+/* .box-office {
+  display: block;
   width: 30%;
+  height: 100%;
 }
 
 .box-office:last-child {
@@ -148,7 +200,7 @@ nav ul li a:hover,
 
 .box-office-details>* {
   padding: 5px 0;
-}
+} */
 
 /* --------------- Line Separator --------------- */
 
@@ -199,22 +251,24 @@ nav ul li a:hover,
 #movies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 2vw;
+  gap: 1.5vw;
   margin: 2vw 10%;
 }
 
-.movie {
+.movie-wrapper {
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .movie-poster,
 .movie-name {
   border: 1px var(--secondary-color) solid;
-
-  border-radius: 2px;
+  margin-bottom: 0.5vw;
 }
 
 .movie img {
+  display: block;
   width: 100%;
 }
 
@@ -224,54 +278,67 @@ nav ul li a:hover,
   text-align: center;
 }
 
-.shadow {
+.shade {
   position: absolute;
   width: 100%;
-  height: 100%;
-  top: 100%;
-  left: 0;
-  background-color: var(--primary-background-color);
-  opacity: 0;
-  transition: all .4s ease-in-out;
-}
-
-.movie:hover .shadow {
   top: 0;
-  opacity: 0.5;
+  height: 60px;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), black);
 }
 
-.movie-popularity {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 4px 10px;
-  border-radius: 10px;
-  background-color: #181013;
-}
 
+.movie-popularity,
 .movie-duration {
   position: absolute;
   top: 10px;
+  font-size: 13px;
+  z-index: 1;
+}
+
+.movie-duration {
   right: 10px;
-  padding: 4px 10px;
-  border-radius: 10px;
-  background-color: #181013;
+}
+
+.movie-popularity {
+  left: 10px;
 }
 
 .movie-detail-wrapper {
   position: absolute;
-  top: 30%;
-  left: 35%;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  transition: all 0.4s ease-in-out;
+  text-align: center;
 }
 
-.movie-detail-wrapper span {
+.movie-detail-wrapper>* {
   display: block;
-  margin: 5px auto;
-  text-align: center;
-  padding: 3px 10px;
-  border-radius: 10px;
-  background-color: #181013;
 }
+
+.movie-rate {
+  margin-top: 40%;
+  padding: 10px;
+}
+
+.movie-language {
+  width: 40px;
+  margin: 0 auto;
+  padding: 10px 0;
+  border: 1px solid var(--secondary-color);
+  border-radius: 30px;
+}
+
+.movie-age {
+  padding: 15px 0;
+}
+
+.movie-wrapper:hover .movie-detail-wrapper {
+  top: 0;
+  background-color: rgba(4, 5, 6, 0.8);
+}
+
+
 
 
 .page-navigator {
@@ -390,6 +457,78 @@ nav ul li a:hover,
 .movie-info-wallpaper {
   width: 80%;
   margin: auto 10%;
+}
+
+
+/* --------------- Contact form --------------- */
+
+.get-in-touch{
+  width: 80%;
+  margin: 5vw auto;
+}
+
+.get-in-touch h2{
+  text-align: center;
+  margin-bottom: 3vw;
+}
+
+.email,
+.message,
+button,
+.name, .subject {
+    width: 100%;
+    font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+    border-color: var(--secondary-color);
+    margin-bottom: 2vw;
+    padding: 1vw 0;
+    color: var(--primary-background-color);
+    padding-left: 10px;
+}
+
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-wrapper div {
+    width: 45%;
+}
+
+
+.get-in-touch textarea {
+    height: max(15vw, 150px);
+}
+
+.consent-wrapper {
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.consent-wrapper input{
+    width: max(0.8vw, 12px);
+    height: max(0.8vw, 12px);
+}
+
+.consent-wrapper a{
+  text-decoration: underline;
+  color: #4545ff;
+}
+
+
+.get-in-touch button {
+    display: block;
+    width: 40%;
+    margin-left: 30%;
+    background-color: var(--primary-background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 2vw;
+    color: var(--primary-color);
+}
+
+.get-in-touch button:hover {
+    cursor: pointer;
+    color: var(--secondary-color);
 }
 
 

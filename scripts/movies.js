@@ -1,9 +1,11 @@
 // Movie API Box Office
 
-// Movie API 
+// Movie API
 
-const moviePoster = document.getElementsByClassName("movie-poster")
-const movieName = document.getElementsByClassName("movie-name")
+// Movies elements
+
+const moviePoster = document.getElementsByClassName("movie-poster");
+const movieName = document.getElementsByClassName("movie-name");
 const movieReleaseYear = document.getElementsByClassName("movie-release-year");
 const moviePopularity = document.getElementsByClassName("movie-popularity");
 const movieDuration = document.getElementsByClassName("movie-duration");
@@ -11,8 +13,8 @@ const movieRate = document.getElementsByClassName("movie-rate");
 const movieLanguage = document.getElementsByClassName("movie-language");
 const movieAge = document.getElementsByClassName("movie-age");
 
-getMovie = () => {
-  fetch(
+getMovie = async () => {
+  await fetch(
     "https://api.themoviedb.org/3/discover/movie?api_key=6ee6d2c638a53edad93b9bf9fe334f43&page=1"
   )
     .then((res) => res.json())
@@ -62,4 +64,30 @@ getMovie = () => {
 
 getMovie();
 
+// Slide show
 
+// Slide show elements
+
+const slideShow = document.getElementById("slides");
+
+fetch(
+  "https://api.themoviedb.org/3/discover/movie?api_key=6ee6d2c638a53edad93b9bf9fe334f43&page=1"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    // Slide show
+    for (i = 0; i < 5; i++) {
+      const slide = document.createElement("img");
+      const slideWrapper = document.createElement("div");
+
+      slide.src = `https://image.tmdb.org/t/p/w500${data.results[i].backdrop_path}`;
+      slide.alt = data.results[i].title + " poster";
+      slideWrapper.classList.add("slide");
+
+      if (i === 0) {
+        slideWrapper.classList.add("slide-1");
+      }
+      slideWrapper.append(slide);
+      slideShow.append(slideWrapper);
+    }
+  });
