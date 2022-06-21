@@ -4,7 +4,7 @@
 movieLayout = (movieData) => {
   
   for (i = 0; i < movieData.results.length; i++) {
-      const {title, poster_path, vote_average, overview, original_language, release_date, popularity} = movieData;  
+      // const {title, poster_path, vote_average, overview, original_language, release_date, popularity} = movieData;  
       let imgURL = "https://image.tmdb.org/t/p/w500";
 
       const movieContainer = document.createElement("div");
