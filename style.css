@@ -531,6 +531,52 @@ button,
     color: var(--secondary-color);
 }
 
+/* About Section */
+
+.about {
+  display: grid;
+  grid-gap: .5rem;
+  grid-template-areas: 
+    "About Photo "
+    "About Photo2 "
+  ;
+  grid-template-columns: 2fr 1fr;
+  margin: 20px;
+}
+
+.about > div {
+  border: 2px solid #EEE;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.about > div:first-child {
+  grid-area: About;
+}
+
+.about > div:nth-child(2) {
+  grid-area: Photo;
+}
+
+.about > div:nth-child(3) {
+  grid-area: Photo2;
+}
+
+.link {
+  text-decoration:underline;
+  color: skyblue;
+}
+
+.headCenter {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.img-fit {
+  width: 100%;
+  height: auto;
+}
+
 
 /* --------------- Footer --------------- */
 
