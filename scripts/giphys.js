@@ -37,10 +37,11 @@ fetch(
 
 // Search for Giphys
 
-const giphySearch = document.getElementById("giphy-search");
-const giphyInputSearch = document.getElementById("giphy-input-search");
+const giphySearch = document.getElementById("user-search");
+const giphyInputSearch = document.getElementById("user-input-search");
 
 giphySearch.addEventListener("click", async () => {
+  giphyMainContainer.innerHTML = "";
   await fetch(
     `https://api.giphy.com/v1/gifs/search?api_key=sGSQS2XOW32LeNaUXeW9c9UeWP4MiWtI&q=${giphyInputSearch.value}&limit=25&offset=0&rating=g&lang=en`
   )

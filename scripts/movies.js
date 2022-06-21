@@ -5,13 +5,14 @@ movieLayout = (movieData) => {
   
   for (i = 0; i < movieData.results.length; i++) {
       const {title, poster_path, vote_average, overview, original_language, release_date, popularity} = movieData;  
+      let imgURL = "https://image.tmdb.org/t/p/w500";
 
       const movieContainer = document.createElement("div");
       movieContainer.classList.add('movie-wrapper')
       movieContainer.innerHTML = `
             <a href="../html/movie-info.html" target="_blank" class="movie">
 
-              <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${movieData.results[i].poster_path}" alt="${movieData.results[i].title}"/>
+              <img class="movie-poster" src="${movieData.results[i].poster_path? imgURL+movieData.results[i].poster_path : "https://moviereelist.com/wp-content/uploads/2019/07/poster-placeholder.jpg"}" alt="${movieData.results[i].title}"/>
               <div class="shade"></div>
               <span class="movie-popularity"><strong>R: </strong>${Math.trunc(movieData.results[i].popularity)}</span>
               <span class="movie-duration">125mins</span>
@@ -47,6 +48,13 @@ fetch(
     movieLayout(data);
   });
 
+// Movies Pages Function
+
+
+
+
+
+
 // Slide show
 
 // Slide show elements
@@ -77,10 +85,11 @@ fetch(
 
 // Search for Movies
 
-const movieSearch = document.getElementById("movie-search");
-const movieInputSearch = document.getElementById("movie-input-search");
+const movieSearch = document.getElementById("user-search");
+const movieInputSearch = document.getElementById("user-input-search");
 
 movieSearch.addEventListener("click", async () => {
+  movieMainContainer.innerHTML = "";
   await fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=6ee6d2c638a53edad93b9bf9fe334f43&query=${movieInputSearch.value}`
   )
