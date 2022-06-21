@@ -316,12 +316,12 @@ input[name="slide"] {
   display: block;
 }
 
-.movie-rate {
+.movie-language {
   margin-top: 40%;
   padding: 10px;
 }
 
-.movie-language {
+.movie-rate {
   width: 40px;
   margin: 0 auto;
   padding: 10px 0;
