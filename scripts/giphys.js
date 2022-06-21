@@ -2,7 +2,7 @@
 
 // Giphy page layout
 
-giphyLayout = (giphyData) =>{
+giphyLayout = (giphyData) => {
   for (i = 0; i < giphyData.data.length; i++) {
     const giphyContainer = document.createElement("div");
     const giphy = document.createElement("img");
@@ -13,6 +13,7 @@ giphyLayout = (giphyData) =>{
     giphyTitle.classList.add("giphy-title");
 
     giphy.src = `${giphyData.data[i].images.original.url}`;
+    giphy.alt = `${giphyData.data[i].title}`;
     giphyTitle.innerHTML = `${giphyData.data[i].title}`;
 
     giphyContainer.append(giphy);
@@ -20,7 +21,7 @@ giphyLayout = (giphyData) =>{
 
     giphyMainContainer.append(giphyContainer);
   }
-}
+};
 
 const giphyMainContainer = document.getElementById("giphy-main-container");
 
@@ -31,7 +32,7 @@ fetch(
 )
   .then((res) => res.json())
   .then((giphies) => {
-    giphyLayout(giphies)
+    giphyLayout(giphies);
   });
 
 // Search for Giphys
@@ -39,13 +40,14 @@ fetch(
 const giphySearch = document.getElementById("giphy-search");
 const giphyInputSearch = document.getElementById("giphy-input-search");
 
-giphySearch.addEventListener("click", async() => {
+giphySearch.addEventListener("click", async () => {
   await fetch(
     `https://api.giphy.com/v1/gifs/search?api_key=sGSQS2XOW32LeNaUXeW9c9UeWP4MiWtI&q=${giphyInputSearch.value}&limit=25&offset=0&rating=g&lang=en`
-  ).then((res) => res.json())
-  .then(giphyData => {
-    giphyLayout(giphyData)
-  })
+  )
+    .then((res) => res.json())
+    .then((giphyData) => {
+      giphyLayout(giphyData);
+    });
 
   giphyInputSearch.value = "";
 });
