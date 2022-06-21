@@ -1,35 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>SK Movies</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <title>SK Movies</title>
+</head>
 
-  <body>
-    <div class="main-container">
-      <header>
-        <h1>SK MOVIES</h1>
+<body>
+  <div class="main-container">
+    <header>
+      <h1>SK MOVIES</h1>
 
-        <nav>
+      <nav>
+        <div>
+          <p class="logo"><a href="/HTTP_project_suraj-karwan/index.html">SK Movies</a></p>
+        </div>
+        <ul>
+          <li><a href="/HTTP_project_suraj-karwan/index.html">Home</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/movies.html">Movies</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/giphy.html">Giphys</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/about.html">About</a></li>
+          <li><a href="/HTTP_project_suraj-karwan/html/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="get-in-touch">
+      <h2>Get In Touch</h2>
+      <form action="#">
+        <div class="input-wrapper">
           <div>
-            <p class="logo"><a href="/HTTP_project_suraj-karwan/index.html">SK Movies</a></p>
+            <label for="name">Name</label>
+            <input type="text" class="name" name="name" id="name" prequired>
           </div>
-          <ul>
-            <li><a href="/HTTP_project_suraj-karwan/index.html">Home</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/movies.html">Movies</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/giphy.html">Giphys</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/about.html">About</a></li>
-            <li><a href="/HTTP_project_suraj-karwan/html/contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+          <div>
+            <label for="subject">Subject</label>
+            <input type="text" class="subject" name="subject" id="subject" prequired>
+          </div>
+        </div>
+        <label for="email">Email</label>
+        <input type="email" class="email" id="email" required>
+        <label for="message"> Message</label>
+        <textarea class="message" name="message" id="message" required></textarea>
+        <div class="consent-wrapper">
+          <input id="consent" name="consent" type="checkbox" required />
+          <label for="consent">I agree to the <a> terms & conditions</a></label>
+        </div>
+        <button type="submit" id="submit">Send message</button>
+      </form>
+    </main>
 
-      <footer>SK MOVIES &copy;2022</footer>
-    </div>
-  </body>
+    <footer>SK MOVIES &copy;2022</footer>
+  </div>
+</body>
 
 </html>
