@@ -5,7 +5,7 @@
 ## Acceptance Criteria
 
 * [x] Query at least two APIs using fetch
-* [ ] Dynamic content generated with JS
+* [x] Dynamic content generated with JS
 * [ ] A clearly defined user journey, documented in your readme
 * [ ] A responsive, mobile-first design
 * [ ] Ensure your app is accessible to as many different users as possible
