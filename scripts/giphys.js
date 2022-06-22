@@ -33,7 +33,10 @@ fetch(
   .then((res) => res.json())
   .then((giphies) => {
     giphyLayout(giphies);
-  });
+  })
+  .catch((error) => {
+    console.log(error)
+  });;
 
 // Search for Giphys
 
@@ -48,7 +51,10 @@ giphySearch.addEventListener("click", async () => {
     .then((res) => res.json())
     .then((giphyData) => {
       giphyLayout(giphyData);
-    });
+    })
+    .catch((error) => {
+      console.log(error)
+    });;
 
   giphyInputSearch.value = "";
 });

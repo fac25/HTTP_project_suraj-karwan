@@ -4,7 +4,7 @@
 movieLayout = (movieData) => {
   
   for (i = 0; i < movieData.results.length; i++) {
-      const {title, poster_path, vote_average, overview, original_language, release_date, popularity} = movieData;  
+      // const {title, poster_path, vote_average, overview, original_language, release_date, popularity} = movieData;  
       let imgURL = "https://image.tmdb.org/t/p/w500";
 
       const movieContainer = document.createElement("div");
@@ -46,16 +46,11 @@ fetch(
   .then((data) => {
     console.log(data);
     movieLayout(data);
-  });
+  })
+  .catch((error) => {
+    console.log(error)
+  });;;
 
-// Movies Pages Function
-
-
-
-
-
-
-// Slide show
 
 // Slide show elements
 
@@ -81,7 +76,10 @@ fetch(
       slideWrapper.append(slide);
       slideShow.append(slideWrapper);
     }
-  });
+  })
+  .catch((error) => {
+    console.log(error)
+  });;;
 
 // Search for Movies
 
@@ -96,7 +94,10 @@ movieSearch.addEventListener("click", async () => {
     .then((res) => res.json())
     .then((movieData) => {
       movieLayout(movieData);
-    });
+    })
+    .catch((error) => {
+      console.log(error)
+    });;;
 
   movieInputSearch.value = "";
 });
