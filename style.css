@@ -171,13 +171,12 @@ input[name="slide"] {
 
 /* --------------- Box office --------------- */
 
-/* .box-office {
+/* #box-office {
   display: block;
   width: 30%;
-  height: 100%;
 }
 
-.box-office:last-child {
+#box-office:last-child {
   border-bottom: 1px solid var(--secondary-color);
 }
 
@@ -189,16 +188,22 @@ input[name="slide"] {
 
 
 .box-office-poster img {
-  width: 20%;
+  width: 18%;
 }
 
 .box-office-num {
+  width: 15%;
   display: block;
   padding: 0 20px;
   font-size: 25px;
 }
 
+.box-office-details{
+  display: inline-block
+}
+
 .box-office-details>* {
+  width: 100%;
   padding: 5px 0;
 } */
 
@@ -369,16 +374,22 @@ input[name="slide"] {
 }
 
 
+/* --------------- Giphy's Page --------------- */
+
 #giphy-main-container {
   margin: 5% 10%;
-  column-count: 5;
-  column-gap: 1vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1vw;
 }
 
-/* --------------- Giphy's Page --------------- */
+.giphy-container{
+  width: 100%;
+}
 
 .giphy {
   width: 100%;
+  height: 80%;
 }
 
 .giphy-title {
@@ -531,7 +542,8 @@ button,
     color: var(--secondary-color);
 }
 
-/* About Section */
+
+/* --------------- About Section --------------- */
 
 .about {
   display: grid;
@@ -541,11 +553,11 @@ button,
     "About Photo2 "
   ;
   grid-template-columns: 2fr 1fr;
-  margin: 20px;
+  margin: 50px 10%;
 }
 
 .about > div {
-  border: 2px solid #EEE;
+  border: 1px solid var(--secondary-color);
   border-radius: 5px;
   padding: 10px;
 }
@@ -562,14 +574,19 @@ button,
   grid-area: Photo2;
 }
 
+.headCenter {
+  text-align: center;
+  margin: 1rem;
+}
+
+.about p{
+  margin: 2vw;
+  text-align: justify;
+}
+
 .link {
   text-decoration:underline;
   color: skyblue;
-}
-
-.headCenter {
-  text-align: center;
-  margin-bottom: 1rem;
 }
 
 .img-fit {
