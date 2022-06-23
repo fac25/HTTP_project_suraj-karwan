@@ -451,23 +451,42 @@ input[name="slide"] {
 }
 
 .movie-info-poster {
-  width: 30%;
+  width: 35%;
 }
 
 .movie-info {
-  width: 70%;
+  width: 65%;
 
+}
+
+.title{
+  text-align: center;
+  font-size: 25px;
 }
 
 .movie-info>* {
   padding: 1vw 0;
 }
 
-.movie-brief {
-  width: 100%;
+
+.movie-info div{
+  display: flex;
 }
 
-.movie-info-wallpaper {
+.movie-info div p{
+  width: 150px;
+}
+
+.movie-info div span{
+  font-weight: bold;
+}
+
+.movie-brief {
+  width: 100%;
+  text-align: justify;
+}
+
+.movie-info-wallpaper img {
   width: 80%;
   margin: auto 10%;
 }
@@ -680,8 +699,32 @@ hr{
   .search span {
     font-size: 20px;
   }
+
+.movie-info-poster {
+  width: 40%;
 }
 
+.movie-info {
+  width: 60%;
+
+}
+}
+
+
+@media only screen and (max-width: 600px) {
+  .movie-info-wrapper {
+    display: block;
+  }
+  
+  .movie-info-poster {
+    width: 100%;
+  }
+  
+  .movie-info {
+    width: 100%;
+  
+  }
+}
 
 @media only screen and (max-width: 480px) {
   .main-container{
