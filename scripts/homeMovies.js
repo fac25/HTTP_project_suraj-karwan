@@ -43,7 +43,7 @@ movieLayout = (movies) => {
         movieContainer.classList.add("movie-wrapper");
 
         movieContainer.innerHTML = `
-              <a href="./html/movie-info.html" target="_blank" class="movie">
+              <a href="./html/movie-info.html?${movie.id}" target="_blank" class="movie">
               <div class="movie-wrapper">
                 <img class="movie-poster" src="${
                   movie.poster_path
