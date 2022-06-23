@@ -44,25 +44,36 @@ header h1 {
 nav {
   display: flex;
   justify-content: space-around;
+  margin: 0 5%;
 }
 
-nav ul {
+#nav-wrapper {
   display: flex;
   justify-content: space-around;
   column-gap: 1vw;
 }
 
-nav ul li a,
+#nav-wrapper li a,
 .logo a {
   display: block;
   padding: 1vw 1.5vw;
   border-bottom: var(--secondary-color) 1px solid;
 }
 
-nav ul li a:hover,
+#nav-wrapper li a:hover,
 .logo a:hover {
   border-bottom-color: var(--primary-color);
   color: var(--secondary-color);
+}
+
+#dropdown-wrapper{
+  display: none;
+}
+
+#dropdown-wrapper p{
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 
@@ -71,7 +82,6 @@ nav ul li a:hover,
 .banner {
   display: flex;
   margin: 2vw 10%;
-  /* column-gap: 2vw; */
 }
 
 
@@ -398,11 +408,6 @@ input[name="slide"] {
 }
 
 
-.search input {
-  color: #181013;
-}
-
-
 .search {
   display: flex;
   width: 30%;
@@ -433,9 +438,6 @@ input[name="slide"] {
   font-size: 30px;
   font-weight: bold;
   transform: scaleY(-1) rotate(30deg);
-}
-
-.search span:hover {
   cursor: pointer;
 }
 
@@ -602,4 +604,98 @@ footer {
   padding: 2vw 0;
   text-align: center;
   border-top: 1px solid var(--secondary-color);
+}
+
+
+@media only screen and (max-width: 1024px) {
+  #movies, #giphy-main-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  #nav-wrapper{
+    display: flex;
+  }
+}
+
+
+@media only screen and (max-width: 780px) {
+
+  #movies, #giphy-main-container{
+    grid-template-columns: 1fr 1fr ;
+  }
+
+  nav{
+    margin: 0 10%;
+    flex-wrap: wrap;
+  }
+
+  .logo-wrapper{
+    width: 50%;
+    text-align: center;
+  }
+
+  #dropdown-wrapper{
+    display: block;
+    width: 50%;
+    text-align: end;
+  }
+
+  #nav-wrapper{
+    display: none;
+    width: 100%;
+    text-align: center;
+  }
+
+hr{
+    display: none;
+  }
+
+  .sort-genre{
+    justify-content: space-between;
+  }
+
+  .sort-genre form{
+    width: 40%;
+  }
+
+  .sort-genre form select{
+    width: 100%;
+  }
+
+  .page-navigator{
+    width: 80%;
+    margin:  0 auto;
+  }
+
+  .page-navigator ul li span{
+    margin: 0 1px;
+  }
+
+  
+  .search input {
+    font-size: 14px;
+  }
+
+  
+  .search span {
+    font-size: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .main-container{
+    width: 320px;
+  }
+  #movies, #giphy-main-container{
+    grid-template-columns: 1fr;
+  }
+
+  .banner{
+    display: none;
+  }
+
+  .search {
+    width: 50%;
+  }
 }
