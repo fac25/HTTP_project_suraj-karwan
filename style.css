@@ -374,16 +374,22 @@ input[name="slide"] {
 }
 
 
+/* --------------- Giphy's Page --------------- */
+
 #giphy-main-container {
   margin: 5% 10%;
-  column-count: 5;
-  column-gap: 1vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1vw;
 }
 
-/* --------------- Giphy's Page --------------- */
+.giphy-container{
+  width: 100%;
+}
 
 .giphy {
   width: 100%;
+  height: 80%;
 }
 
 .giphy-title {
