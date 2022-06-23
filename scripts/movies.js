@@ -7,7 +7,6 @@ const movieMainContainer = document.getElementById("movies");
 
 // Fetch random Movies
 
-if (isLoaded) {
   fetch(
     "https://api.themoviedb.org/3/discover/movie?api_key=6ee6d2c638a53edad93b9bf9fe334f43&page=1"
   )
@@ -18,7 +17,6 @@ if (isLoaded) {
     .catch((error) => {
       console.log(error);
     });
-}
 
 // Get Movies
 

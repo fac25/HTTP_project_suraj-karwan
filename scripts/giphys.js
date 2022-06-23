@@ -43,9 +43,9 @@ fetch(
 const giphySearch = document.getElementById("user-search");
 const giphyInputSearch = document.getElementById("user-input-search");
 
-giphySearch.addEventListener("click", async () => {
+giphySearch.addEventListener("click",  () => {
   giphyMainContainer.innerHTML = "";
-  await fetch(
+   fetch(
     `https://api.giphy.com/v1/gifs/search?api_key=sGSQS2XOW32LeNaUXeW9c9UeWP4MiWtI&q=${giphyInputSearch.value}&limit=25&offset=0&rating=g&lang=en`
   )
     .then((res) => res.json())
