@@ -15,7 +15,7 @@
 [Giphy](https://developers.giphy.com/)
 
 ## User Journey's
-* [x] Plan Porject
+* [x] Plan Project
 * [x] Get Giphy API Datas
 * [x] Get Movie API Datas
 * [x] Plan Structure
